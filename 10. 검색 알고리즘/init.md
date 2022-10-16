@@ -14,7 +14,7 @@
 - 분류된 배열을 대상으로만 동작한다.
 - 분할 정복(Divide and Conquer)
 - 중간에 있는 값을 확인하고 확인 값보다 작은 값들의 배열, 확인 값보다 높은 값들의 배열로 나누어 검색 -> 원하는 값을 찾던가, 없을 떄 까지 반복
-- `O(n)`
+- `O(logn)`
 - [binary_search.js](e.g/binary_search.js)
 
 ### 나이브 문자열 탐색 (Navie String Search)
