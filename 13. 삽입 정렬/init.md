@@ -1,0 +1,5 @@
+- 표준 정렬
+- 기준 index에 있는 값(기준값)을 임시 변수에 할당하고 기준이 되는 index 보다 작은 index의 값을 반복하면서 기준 값 보다 크면(작으면) 비교하는 index 값을 한칸 뒤로 옮긴다.(비교index + 1) 비교 index 값이 기준값 보다 작으면(크면) 비교하는 index 다음에 기준값을 넣는다(비교index + 1)
+- 이미 정렬된 배열에 값을 추가하여 재 정렬할떄 유리
+- `O(n^2)`
+- [insertion sort.js](e.g/insertion%20sort.js)

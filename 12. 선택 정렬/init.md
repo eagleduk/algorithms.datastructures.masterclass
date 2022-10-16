@@ -1,0 +1,5 @@
+- 표준 정렬
+- 작은 값을 한번에 하나씩 앞으로 배치
+- 전체 배열에서 최소값을 찾아 앞에서 부터 배치
+- `O(n)`
+- [selection sort.js](e.g/selection%20sort.js)
