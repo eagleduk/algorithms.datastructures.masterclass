@@ -89,6 +89,7 @@ class SinglyLinkedList {
     target.val = val;
     return true;
   }
+  // index 위치에 값을 추가하고 true 를 반환한다. index 가 0보다 작거나, 전체 길이보다 크면 false 를 반환한다.
   insert(index, val) {
     if (index < 0 || index > this.length) return false;
 
@@ -103,6 +104,22 @@ class SinglyLinkedList {
       pre.next = node;
       node.next = temp;
       this.length++;
+    }
+    return true;
+  }
+  // index 위치의 값을 삭제하고 true 를 반환하낟. index 가 0보다 작거나, 전체 길이 -1 보다 크면 false 를 반환한다.
+  remove(index) {
+    if (index < 0 || index > this.length - 1) return false;
+    if (index === 0) {
+      this.shift();
+    } else if (index === this.length - 1) {
+      this.pop();
+    } else {
+      var pre = this.get(index - 1);
+      var target = pre.next;
+      var next = target.next;
+      pre.next = next;
+      this.length--;
     }
     return true;
   }
