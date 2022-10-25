@@ -123,6 +123,43 @@ class SinglyLinkedList {
     }
     return true;
   }
+  /*
+          !! -> @@ -> ## -> $$
+    --------------------------
+    pN    cN
+    pN    cN    nN = cN.next
+    pN << cN    nN
+          pN=cN cN=nN
+    --------------------------
+          pN    cN
+          pN    cN    nN = cN.next
+          pN << cN    nN
+                pN=cN cN=nN
+    --------------------------
+                pN    cN
+                pN    cN    nN = cN.next
+                pN << cN    nN
+                      pN=cN cN=nN
+    --------------------------
+                      pN    cN
+                      pN    cN    nN = cN.next = null
+                      pN << cN    nN
+                            pN=cN cN=nN
+  */
+  reverse() {
+    var nNode = this.head;
+    this.head = this.tail;
+    this.tail = nNode;
+
+    var next = null;
+    var prev = null;
+    for (var i = 0; i < this.length; i++) {
+      next = nNode.next;
+      nNode.next = prev;
+      prev = nNode;
+      nNode = next;
+    }
+  }
 }
 
 var list = new SinglyLinkedList();
