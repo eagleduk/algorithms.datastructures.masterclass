@@ -43,6 +43,7 @@ class SinglyLinkedList {
     this.length--;
     return last;
   }
+  // 제일 앞에 있는 값의 연결을 제거하고 출력한다.
   shift() {
     if (this.length === 0) return undefined;
     var temp = this.head;
@@ -56,6 +57,7 @@ class SinglyLinkedList {
     this.length--;
     return temp;
   }
+  // 제일 앞에 새로운 값을 추가한다.
   unshift(val) {
     var node = new Node(val);
     if (this.length === 0) {
@@ -68,6 +70,17 @@ class SinglyLinkedList {
       this.length++;
     }
     return this;
+  }
+  // index 에 있는 노드를 반환한다. 없으면 -1 을 반환한다.
+  get(index) {
+    if (index < 0) return -1;
+    var counter = 0;
+    var current = this.head;
+    while (current && counter < index) {
+      current = current.next;
+      counter++;
+    }
+    return current === null ? -1 : current;
   }
 }
 
