@@ -82,6 +82,13 @@ class SinglyLinkedList {
     }
     return current === null ? -1 : current;
   }
+  // index 에 있는 노드의 값을 업데이트 후 true 를 반환한다. 없으면 false 를 반환한다.
+  set(index, val) {
+    var target = this.get(index);
+    if (target === -1) return false;
+    target.val = val;
+    return true;
+  }
 }
 
 var list = new SinglyLinkedList();
