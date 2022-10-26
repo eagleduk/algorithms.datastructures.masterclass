@@ -12,6 +12,15 @@ class DoublyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+  print() {
+    var result = [];
+    var current = this.head;
+    while (current) {
+      result.push(current.val);
+      current = current.next;
+    }
+    console.log(result);
+  }
   push(val) {
     var node = new Node(val);
     if (this.length === 0) {
@@ -96,6 +105,24 @@ class DoublyLinkedList {
     if (node === -1) return false;
 
     node.val = val;
+    return true;
+  }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) this.unshift(val);
+    else if (index === this.length) this.push(val);
+    else {
+      var node = new Node(val);
+      var next = this.get(index);
+      var prev = next.prev;
+
+      prev.next = node;
+      node.prev = prev;
+
+      next.prev = node;
+      node.next = next;
+      this.length++;
+    }
     return true;
   }
 }
