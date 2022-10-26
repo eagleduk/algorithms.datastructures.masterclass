@@ -91,6 +91,13 @@ class DoublyLinkedList {
     }
     return result;
   }
+  set(index, val) {
+    var node = this.get(index);
+    if (node === -1) return false;
+
+    node.val = val;
+    return true;
+  }
 }
 
 var list = new DoublyLinkedList();
