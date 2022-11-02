@@ -73,6 +73,20 @@ class BinarySearchTree {
     }
     return result;
   }
+
+  preOrder() {
+    var result = [];
+
+    function travers(node) {
+      result.push(node);
+      if (node.left) travers(node.left);
+      if (node.right) travers(node.right);
+    }
+
+    travers(this.root);
+
+    return result;
+  }
 }
 
 var tree = new BinarySearchTree();
