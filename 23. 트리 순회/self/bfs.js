@@ -87,6 +87,20 @@ class BinarySearchTree {
 
     return result;
   }
+
+  postOrder() {
+    var result = [];
+
+    function travers(node) {
+      if (node.left) travers(node.left);
+      if (node.right) travers(node.right);
+      result.push(node);
+    }
+
+    travers(this.root);
+
+    return result;
+  }
 }
 
 var tree = new BinarySearchTree();
