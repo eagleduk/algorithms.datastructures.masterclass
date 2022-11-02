@@ -101,6 +101,20 @@ class BinarySearchTree {
 
     return result;
   }
+
+  inOrder() {
+    var result = [];
+
+    function travers(node) {
+      if (node.left) travers(node.left);
+      result.push(node);
+      if (node.right) travers(node.right);
+    }
+
+    travers(this.root);
+
+    return result;
+  }
 }
 
 var tree = new BinarySearchTree();
