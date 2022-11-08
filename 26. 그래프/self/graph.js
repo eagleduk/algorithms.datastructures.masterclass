@@ -21,12 +21,25 @@ class Graph {
       );
     }
   }
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined;
+
+    this.adjacencyList[vertex].forEach((target) => {
+      this.removeEdge(vertex, target);
+    });
+    delete this.adjacencyList[vertex];
+  }
 }
 
 let g = new Graph();
 g.addVertex("Dallas");
 g.addVertex("Tokyo");
 g.addVertex("Aspen");
-
-g.addEgde("Dallas", "Tokyo");
-g.addEgde("Dallas", "Aspen");
+g.addVertex("Los Angeles");
+g.addVertex("Hong Kong");
+g.addEdge("Dallas", "Tokyo");
+g.addEdge("Dallas", "Aspen");
+g.addEdge("Hong Kong", "Tokyo");
+g.addEdge("Hong Kong", "Dallas");
+g.addEdge("Los Angeles", "Hong Kong");
+g.addEdge("Los Angeles", "Aspen");
