@@ -48,6 +48,23 @@ class Graph {
 
     return result;
   }
+  dfsLoof(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined;
+
+    let result = [];
+    let visited = {};
+
+    let toBeVisit = [vertex];
+
+    while (toBeVisit.length) {
+      const current = toBeVisit.pop();
+      if (visited[current]) continue;
+      visited[current] = true;
+      result.push(current);
+      toBeVisit = [...toBeVisit, ...this.adjacencyList[current]];
+    }
+    return result;
+  }
 }
 
 let g = new Graph();
