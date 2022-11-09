@@ -29,17 +29,41 @@ class Graph {
     });
     delete this.adjacencyList[vertex];
   }
+  dfsRecursive(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined;
+
+    let result = [];
+    let visited = {};
+
+    const d = (vertex) => {
+      if (visited[vertex]) return;
+      visited[vertex] = true;
+      result.push(vertex);
+
+      for (let i = 0; i < this.adjacencyList[vertex].length; i++) {
+        d(this.adjacencyList[vertex][i]);
+      }
+    };
+    d(vertex);
+
+    return result;
+  }
 }
 
 let g = new Graph();
-g.addVertex("Dallas");
-g.addVertex("Tokyo");
-g.addVertex("Aspen");
-g.addVertex("Los Angeles");
-g.addVertex("Hong Kong");
-g.addEdge("Dallas", "Tokyo");
-g.addEdge("Dallas", "Aspen");
-g.addEdge("Hong Kong", "Tokyo");
-g.addEdge("Hong Kong", "Dallas");
-g.addEdge("Los Angeles", "Hong Kong");
-g.addEdge("Los Angeles", "Aspen");
+
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+
+g.addEdge("A", "B");
+g.addEdge("A", "C");
+g.addEdge("B", "D");
+g.addEdge("C", "E");
+g.addEdge("D", "E");
+g.addEdge("D", "F");
+g.addEdge("E", "F");
+g.dfsRecursive("A");
