@@ -28,3 +28,15 @@ function pivot(arr, comparator, start = 0, end = arr.length - 1) {
   swap(arr, start, index);
   return index;
 }
+
+function quickSort(arr, comparator) {
+  if (arr.length <= 1) return arr;
+
+  var pivotValue = pivot(arr, comparator);
+
+  return [
+    ...quickSort(arr.slice(0, pivotValue), comparator),
+    arr[pivotValue],
+    ...quickSort(arr.slice(pivotValue + 1), comparator),
+  ];
+}
